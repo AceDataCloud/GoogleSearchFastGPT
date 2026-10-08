@@ -6,7 +6,7 @@
 
 ## 从零开始
 
-1. 使用 FastGPT 4.15 或更新版本。插件上架后在 FastGPT 插件市场搜索 **Ace Data Cloud Google Search**，核对作者为 **Ace Data Cloud** 再安装。上架前，企业版或自部署管理员可以构建本仓库 .pkg 并在插件管理页上传；FastGPT 云服务目前不支持用户直接上传自定义插件。
+1. 使用 FastGPT 4.15 或更新版本及本插件 0.1.1 或更新版本。插件上架后在 FastGPT 插件市场搜索 **Ace Data Cloud Google Search**，核对作者为 **Ace Data Cloud** 再安装。上架前，企业版或自部署管理员可以构建本仓库 .pkg 并在插件管理页上传；FastGPT 云服务目前不支持用户直接上传自定义插件。
 2. 登录 [Ace Data Cloud 应用管理](https://platform.acedata.cloud/console/applications)，打开 **General Application**，确认已开通 Google Search、余额与当期价格。点击下图 **1** 复制 API Key；如需为 FastGPT 单独建密钥，选择 **2 Manage Keys → Create**。若启用 Allowed APIs，加入 /serp/google。
 
 ![Ace Data Cloud 的真实应用密钥界面，密钥已遮挡](assets/get-api-key-en.png)

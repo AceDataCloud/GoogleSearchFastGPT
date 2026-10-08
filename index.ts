@@ -18,10 +18,6 @@ const secretSchema = z.object({
 });
 
 const searchType = z.enum(['search', 'images', 'news', 'maps', 'places', 'videos']);
-const imageSize = z.enum([
-  'large', 'medium', 'icon', '2mp', '4mp', '6mp', '8mp', '10mp',
-  '12mp', '15mp', '20mp', '40mp', '70mp'
-]);
 
 const handler = createToolHandler({
   inputSchema: z.object({
@@ -49,13 +45,13 @@ const handler = createToolHandler({
       title: 'Language code',
       description: 'Optional language, for example en or zh.'
     } satisfies InputSchemaMetaType),
-    timeRange: z.enum(['h', 'd', 'w', 'm', 'y', 'qdr:h', 'qdr:d', 'qdr:w', 'qdr:m', 'qdr:y']).optional().meta({
+    timeRange: z.string().trim().max(8).optional().meta({
       title: 'Time range',
-      description: 'Only for web search and news.'
+      description: 'Only for web search and news: h, d, w, m, y, or qdr:h/d/w/m/y. Leave blank otherwise.'
     } satisfies InputSchemaMetaType),
-    imageSize: imageSize.optional().meta({
+    imageSize: z.string().trim().max(8).optional().meta({
       title: 'Image size',
-      description: 'Only for image search. Use large or a megapixel minimum for full-size images.'
+      description: 'Only for image search: large, medium, icon, or 2mp through 70mp. Leave blank otherwise.'
     } satisfies InputSchemaMetaType)
   }),
   outputSchema: z.object({
@@ -82,13 +78,16 @@ const handler = createToolHandler({
 export default defineTool({
   manifest: {
     pluginId: 'acedataGoogleSearch',
-    version: '0.1.0',
+    version: '0.1.1',
     name: { en: 'Ace Data Cloud Google Search', 'zh-CN': 'Ace Data Cloud 谷歌搜索' },
     description: {
       en: 'Search Google web, images, news, maps, places, and videos through Ace Data Cloud.',
       'zh-CN': '通过 Ace Data Cloud 搜索谷歌网页、图片、新闻、地图、地点和视频。'
     },
-    versionDescription: { en: 'Initial release', 'zh-CN': '首次发布' },
+    versionDescription: {
+      en: 'Keep optional type-specific filters blank until chosen',
+      'zh-CN': '按搜索类型选择可选筛选项，未选择时保持为空'
+    },
     author: 'Ace Data Cloud',
     repoUrl: 'https://github.com/AceDataCloud/GoogleSearchFastGPT',
     tutorialUrl: 'https://github.com/AceDataCloud/GoogleSearchFastGPT#quick-start',

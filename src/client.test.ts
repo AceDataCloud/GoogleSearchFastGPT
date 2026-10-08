@@ -42,6 +42,8 @@ test('rejects filters on incompatible search types before sending', async () => 
   vi.stubGlobal('fetch', fetch);
   await expect(googleSearch({ ...input, searchType: 'places', timeRange: 'd' }, 'key')).rejects.toThrow('Time range');
   await expect(googleSearch({ ...input, imageSize: 'large' }, 'key')).rejects.toThrow('Image size');
+  await expect(googleSearch({ ...input, timeRange: 'invalid' }, 'key')).rejects.toThrow('Unsupported time range');
+  await expect(googleSearch({ ...input, searchType: 'images', imageSize: 'invalid' }, 'key')).rejects.toThrow('Unsupported image size');
   expect(fetch).not.toHaveBeenCalled();
 });
 

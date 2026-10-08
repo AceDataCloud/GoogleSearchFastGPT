@@ -6,7 +6,7 @@ Search Google web results through a FastGPT tool. The same plugin can also searc
 
 ### 1. Install the plugin
 
-Use FastGPT 4.15 or later. Once published, search FastGPT Marketplace for **Ace Data Cloud Google Search** and check the author is **Ace Data Cloud** before installing. Before Marketplace publication, a business or self-hosted FastGPT administrator can build and upload this repository's .pkg on the plugin management page. FastGPT Cloud does not currently support direct custom plugin uploads.
+Use FastGPT 4.15 or later and plugin version 0.1.1 or later. Once published, search FastGPT Marketplace for **Ace Data Cloud Google Search** and check the author is **Ace Data Cloud** before installing. Before Marketplace publication, a business or self-hosted FastGPT administrator can build and upload this repository's .pkg on the plugin management page. FastGPT Cloud does not currently support direct custom plugin uploads.
 
 ### 2. Get the correct API key
 

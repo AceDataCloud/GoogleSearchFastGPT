@@ -54,6 +54,12 @@ const responseKey: Record<SearchType, string> = {
   videos: 'videos'
 };
 
+const timeRanges = new Set(['h', 'd', 'w', 'm', 'y', 'qdr:h', 'qdr:d', 'qdr:w', 'qdr:m', 'qdr:y']);
+const imageSizes = new Set([
+  'large', 'medium', 'icon', '2mp', '4mp', '6mp', '8mp', '10mp',
+  '12mp', '15mp', '20mp', '40mp', '70mp'
+]);
+
 export function normalizeSearch(body: unknown, input: SearchInput, traceId = ''): SearchResult {
   const data = obj(body);
   if (!data) throw new Error('Ace Data Cloud returned an invalid search response.');
@@ -92,8 +98,14 @@ export async function googleSearch(input: SearchInput, apiKey: string): Promise<
   if (input.timeRange && !['search', 'news'].includes(input.searchType)) {
     throw new Error('Time range applies only to web search and news.');
   }
+  if (input.timeRange && !timeRanges.has(input.timeRange)) {
+    throw new Error('Unsupported time range. Use h, d, w, m, y, or qdr:h/d/w/m/y.');
+  }
   if (input.imageSize && input.searchType !== 'images') {
     throw new Error('Image size applies only to image search.');
+  }
+  if (input.imageSize && !imageSizes.has(input.imageSize)) {
+    throw new Error('Unsupported image size. Use large, medium, icon, or a documented mp value.');
   }
   const body: Record<string, unknown> = {
     query: input.query,

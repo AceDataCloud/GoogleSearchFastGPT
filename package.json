@@ -1,6 +1,6 @@
 {
   "name": "fastgpt-plugin-acedata-google-search",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ace Data Cloud Google Search for FastGPT",
   "type": "module",
   "main": "dist/index.js",
