@@ -19,7 +19,7 @@ In the installed FastGPT plugin configuration, paste only the token string into 
 
 ### 3. Build the first workflow
 
-Create a blank FastGPT workflow and connect **Start → Ace Data Cloud Google Search → Output**. Set the tool fields as follows:
+In **Studio → Create Agent → Workflow**, start with **Process starts**. From **System Tools**, add **Ace Data Cloud Google Search**, activate it with the configured **System secret**, and connect **Process starts → Ace Data Cloud Google Search → Basic / Assigned Reply**. Set the tool fields as follows:
 
 | Field | First-run value |
 |---|---|
@@ -28,9 +28,15 @@ Create a blank FastGPT workflow and connect **Start → Ace Data Cloud Google Se
 | Results to show | 3 |
 | Page | 1 |
 
-Leave country, language, time range, and image size empty for the first run. Bind the Output node to the tool's **items**, **returnedCount**, **costCredits**, and **traceId** outputs. Run once and open a URL in items. A web item includes title, URL, and snippet. This API is synchronous: there is no task ID or polling step.
+Leave country, language, time range, and image size empty for the first run. In **Assigned Reply**, insert the tool's **items**, **returnedCount**, **costCredits**, and **traceId** outputs with the variable picker. Choose **Save Only**, then **Run Preview** once and open a URL in items. A web item includes title, URL, and snippet. This API is synchronous: there is no task ID or polling step.
 
 The API may return more items than requested for some search types; the plugin shows at most **Results to show** and reports the full **API result count** separately. Check the Ace Data Cloud request record and Credits charge for this one query.
+
+The screenshots below show an installed plugin and **one new FastGPT-hosted call** in Run Preview.
+
+![Installed plugin with Normal status and Configured system key](assets/fastgpt-installed-configured.png)
+
+![New FastGPT-hosted call and its result](assets/fastgpt-host-result.png)
 
 ### 4. Copyable local example without a key in the repository
 

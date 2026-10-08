@@ -12,8 +12,14 @@
 ![Ace Data Cloud 的真实应用密钥界面，密钥已遮挡](assets/get-api-key-en.png)
 
 3. 在 FastGPT 已安装插件的配置中，将密钥填入 **Ace Data Cloud API key**。只填令牌本身，不加 Bearer、引号或空格；不要放进提示词或工作流导出。
-4. 创建空白工作流并连接 **开始 → Ace Data Cloud Google Search → 输出**。工具参数：Query 为 site:fastgpt.io plugin development，Search type 为 search，Results to show 为 3，Page 为 1，其余留空。输出节点选择工具的 items、returnedCount、costCredits 与 traceId。
-5. 执行一次，打开 items 中的链接；网页结果包括标题、URL 和摘要。到 Ace Data Cloud 控制台核对这次请求与 Credits 扣费。部分搜索类型的 API 可能返回多于请求数量的条目，插件最多展示 Results to show 条，并单独给出 API 实际返回数量。
+4. 在 **Studio → Create Agent → Workflow** 新建工作流。从 **System Tools** 添加 **Ace Data Cloud Google Search**，激活工具并选择已配置的 **System secret**，连接 **Process starts → Ace Data Cloud Google Search → Basic / Assigned Reply**。工具参数：Query 为 site:fastgpt.io plugin development，Search type 为 search，Results to show 为 3，Page 为 1，其余留空。在 **Assigned Reply** 中用变量选择器插入工具的 items、returnedCount、costCredits 与 traceId。选择 **Save Only**，再用 **Run Preview** 执行一次。
+5. 打开 items 中的链接；网页结果包括标题、URL 和摘要。到 Ace Data Cloud 控制台核对这次请求与 Credits 扣费。部分搜索类型的 API 可能返回多于请求数量的条目，插件最多展示 Results to show 条，并单独给出 API 实际返回数量。
+
+以下截图展示插件安装，以及 **FastGPT Run Preview 中一次新调用**的结果。
+
+![FastGPT 插件状态 Normal，系统密钥已配置](assets/fastgpt-installed-configured.png)
+
+![FastGPT 新调用及其结果](assets/fastgpt-host-result.png)
 
 ## 无密钥示例与其他类型
 
