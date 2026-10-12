@@ -1,6 +1,6 @@
 # Ace Data Cloud Google Search for FastGPT
 
-Search Google web results through a FastGPT tool. The same plugin can also search images, news, maps, places, and videos. [简体中文](README_zh_CN.md) · [Current pricing](https://platform.acedata.cloud/models)
+Search Google web results through a FastGPT tool. The same plugin can also search images, news, maps, places, and videos. [简体中文](README_zh_CN.md) · [Current pricing](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_pricing)
 
 ## Quick start
 
@@ -10,7 +10,7 @@ Use FastGPT 4.15 or later and plugin version 0.1.1 or later. Once published, sea
 
 ### 2. Get the correct API key
 
-1. Sign in to [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications) and open **General Application**. Confirm **Google Search** access, the current price, and a sufficient balance.
+1. Sign in to [Ace Data Cloud → Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_api_key) and open **General Application**. Confirm **Google Search** access, the current price, and a sufficient balance.
 2. Copy the existing API key with the icon marked **1** below. For a separate FastGPT key, choose **Manage Keys** marked **2**, then **Create**. If you enable **Allowed APIs**, include /serp/google.
 
 ![Actual Ace Data Cloud application screen with the key redacted](assets/get-api-key-en.png)
@@ -66,4 +66,4 @@ Change **Search type** to images, news, maps, places, or videos. For images, **i
 | 429 | Wait and reduce concurrency. |
 | Timeout or 5xx | Check request history before retrying an uncertain paid search; give support the trace ID, never your key. |
 
-The plugin sends the query, selected filters, and credential to api.acedata.cloud. Calls follow [current service pricing](https://platform.acedata.cloud/models). [Privacy](PRIVACY.md) · [Source and support](https://github.com/AceDataCloud/GoogleSearchFastGPT/issues).
+The plugin sends the query, selected filters, and credential to api.acedata.cloud. Calls follow [current service pricing](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_pricing). [Privacy](PRIVACY.md) · [Source and support](https://github.com/AceDataCloud/GoogleSearchFastGPT/issues).

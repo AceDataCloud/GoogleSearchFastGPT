@@ -1,13 +1,13 @@
 # Ace Data Cloud 谷歌搜索工具 for FastGPT
 
-[English guide](README.md) · [当前价格](https://platform.acedata.cloud/models)
+[English guide](README.md) · [当前价格](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_pricing)
 
 本插件在 FastGPT 中提供网页、图片、新闻、地图、地点和视频六种谷歌搜索。一次调用同步返回结果，无任务 ID，也无需轮询。
 
 ## 从零开始
 
 1. 使用 FastGPT 4.15 或更新版本及本插件 0.1.1 或更新版本。插件上架后在 FastGPT 插件市场搜索 **Ace Data Cloud Google Search**，核对作者为 **Ace Data Cloud** 再安装。上架前，企业版或自部署管理员可以构建本仓库 .pkg 并在插件管理页上传；FastGPT 云服务目前不支持用户直接上传自定义插件。
-2. 登录 [Ace Data Cloud 应用管理](https://platform.acedata.cloud/console/applications)，打开 **General Application**，确认已开通 Google Search、余额与当期价格。点击下图 **1** 复制 API Key；如需为 FastGPT 单独建密钥，选择 **2 Manage Keys → Create**。若启用 Allowed APIs，加入 /serp/google。
+2. 登录 [Ace Data Cloud 应用管理](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_api_key)，打开 **General Application**，确认已开通 Google Search、余额与当期价格。点击下图 **1** 复制 API Key；如需为 FastGPT 单独建密钥，选择 **2 Manage Keys → Create**。若启用 Allowed APIs，加入 /serp/google。
 
 ![Ace Data Cloud 的真实应用密钥界面，密钥已遮挡](assets/get-api-key-en.png)
 
@@ -43,4 +43,4 @@ pnpm exec fastgpt-plugin pack --entry . --dist ./dist --output ./out
 | 429 | 等待并降低并发。 |
 | 超时 / 5xx | 先查原请求记录再重试不确定的付费搜索；只给客服 traceId，不给密钥。 |
 
-插件仅向 api.acedata.cloud 发送所选查询、筛选参数和令牌。费用以[当前服务价格](https://platform.acedata.cloud/models)为准。[隐私说明](PRIVACY.md) · [源码与问题反馈](https://github.com/AceDataCloud/GoogleSearchFastGPT/issues)。
+插件仅向 api.acedata.cloud 发送所选查询、筛选参数和令牌。费用以[当前服务价格](https://platform.acedata.cloud/models?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=googlesearchfastgpt_readme_pricing)为准。[隐私说明](PRIVACY.md) · [源码与问题反馈](https://github.com/AceDataCloud/GoogleSearchFastGPT/issues)。
